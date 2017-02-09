@@ -1,36 +1,31 @@
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context="com.example.rahmatridham.makassar90.FragmentSchedule">
+    android:orientation="vertical"
+    android:layout_height="wrap_content">
 
-    <!-- TODO: Update blank fragment layout -->
 
-    <RelativeLayout
+    <android.support.design.widget.TabLayout
+        android:id="@+id/tabs"
+        app:tabGravity="fill"
+        app:tabMode="fixed"
+        android:background="@color/material_blue_grey_800"
+        app:tabIndicatorColor="#3498DB"
+        app:tabSelectedTextColor="#3498DB"
+        app:tabTextColor="@android:color/white"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+    </android.support.design.widget.TabLayout>
+
+    <android.support.v4.view.ViewPager
+        android:id="@+id/viewpager"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-        <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="70dp"
-            android:id="@+id/relay">
+    </android.support.v4.view.ViewPager>
 
 
 
-        </RelativeLayout>
-
-        <ListView
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:id="@+id/listSchedule"
-            android:layout_below="@id/relay"/>
-
-    </RelativeLayout>
-
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="schedule"
-        android:id="@+id/textView2" />
-
-</FrameLayout>
+</LinearLayout>
