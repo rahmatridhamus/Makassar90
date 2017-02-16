@@ -37,4 +37,5 @@ public class Band {
     public void setImg_url(String img_url) {
         this.img_url = img_url;
     }
+
 }
