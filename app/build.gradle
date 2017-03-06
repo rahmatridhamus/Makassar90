@@ -29,5 +29,10 @@ dependencies {
     compile 'com.android.support:support-v4:24.2.1'
     compile 'com.squareup.picasso:picasso:2.5.2'
     compile 'com.mcxiaoke.volley:library-aar:1.0.0'
+    compile 'com.pusher:pusher-java-client:1.4.0'
+    compile ('io.socket:engine.io-client:0.8.3') {
+        // excluding org.json which is provided by Android
+        exclude group: 'org.json', module: 'json'
+    }
     testCompile 'junit:junit:4.12'
 }

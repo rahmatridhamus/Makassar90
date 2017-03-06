@@ -1,6 +1,7 @@
 package com.example.rahmatridham.makassar90;
 
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
@@ -50,7 +51,6 @@ public class BandListFragment extends Fragment implements AdapterView.OnItemClic
         listView = (ListView) v.findViewById(R.id.listBand);
         listView.setAdapter(adapter);
         getAllArtist();
-
         adapter.notifyDataSetChanged();
 
         listView.setOnItemClickListener(this);
@@ -82,9 +82,13 @@ public class BandListFragment extends Fragment implements AdapterView.OnItemClic
 
                     for (int i = 0; i < listData.length(); i++) {
                         JSONObject object = listData.optJSONObject(i);
-                        Band band = new Band(object.optString("name",""),object.optString("desc",""),object.optString("img_url"));
+                        Band band = new Band(object.optString("name", ""), object.optString("desc", ""), object.optString("img_url"));
                         bandArrayList.add(band);
                     }
+
+                    Band sponsor = new Band("default", "default", "default");
+                    bandArrayList.add(bandArrayList.size(), sponsor);
+
 
                     adapter.notifyDataSetChanged();
 
@@ -127,6 +131,17 @@ public class BandListFragment extends Fragment implements AdapterView.OnItemClic
     @Override
     public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
         Band band = bandArrayList.get(i);
-        Toast.makeText(view.getContext(), band.getDesc(), Toast.LENGTH_SHORT).show();
+        if (i == bandArrayList.size()) {
+
+        } else {
+            Intent intent = new Intent(BandListFragment.this.getContext(), DetailBand.class);
+            intent.putExtra("namaBand", band.getName());
+            intent.putExtra("descBand", band.getDesc());
+            intent.putExtra("urlBand", band.getImg_url());
+            startActivity(intent);
+        }
+
     }
+
+
 }
